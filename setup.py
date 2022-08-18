@@ -18,53 +18,57 @@ from setuptools import setup
 
 from bzt.resources.version import VERSION
 
-with open('requirements.txt') as _f:
+with open("requirements.txt") as _f:
     content = _f.read()
     requires = [str(req) for req in pkg_resources.parse_requirements(content)]
 
 setup(
     name="bzt",
-    version=VERSION,
-    description='Taurus Tool for Continuous Testing',
-    long_description=open('README.md').read(),
-    long_description_content_type='text/markdown',
-    author='Andrey Pokhilko',
-    author_email='andrey@blazemeter.com',
-    url='http://gettaurus.org/',
-    download_url='http://gettaurus.org/docs/DeveloperGuide/#Python-Egg-Snapshots',
-    license='Apache 2.0',
+    version="1.16.2",
+    description="Taurus Tool for Continuous Testing",
+    long_description=open("README.md").read(),
+    long_description_content_type="text/markdown",
+    author="Andrey Pokhilko",
+    author_email="andrey@blazemeter.com",
+    url="http://gettaurus.org/",
+    download_url="http://gettaurus.org/docs/DeveloperGuide/#Python-Egg-Snapshots",
+    license="Apache 2.0",
     install_requires=requires,
-    packages=['bzt', 'bzt.engine', 'bzt.jmx', 'bzt.modules', 'bzt.resources', 'bzt.resources.version',
-              'bzt.modules.java', 'bzt.modules._apiritif', 'bzt.modules.blazemeter'],
+    packages=[
+        "bzt",
+        "bzt.engine",
+        "bzt.jmx",
+        "bzt.modules",
+        "bzt.resources",
+        "bzt.resources.version",
+        "bzt.modules.java",
+        "bzt.modules._apiritif",
+        "bzt.modules.blazemeter",
+    ],
     entry_points={
-        'console_scripts': [
-            'bzt=bzt.cli:main',
-            'jmx2yaml=bzt.jmx2yaml:main',
-            'soapui2yaml=bzt.soapui2yaml:main',
-            'swagger2yaml=bzt.swagger2yaml:main',
+        "console_scripts": [
+            "bzt=bzt.cli:main",
+            "jmx2yaml=bzt.jmx2yaml:main",
+            "soapui2yaml=bzt.soapui2yaml:main",
+            "swagger2yaml=bzt.swagger2yaml:main",
         ],
     },
     include_package_data=True,
     package_data={
         "bzt": [],
     },
-
     classifiers=[
-        'Development Status :: 5 - Production/Stable',
-
-        'Topic :: Software Development :: Quality Assurance',
-        'Topic :: Software Development :: Testing',
-        'Topic :: Software Development :: Testing :: Traffic Generation',
-
-        'License :: OSI Approved :: Apache Software License',
-
-        'Operating System :: Microsoft :: Windows',
-        'Operating System :: MacOS',
-        'Operating System :: POSIX :: Linux',
-
-        'Programming Language :: Python :: 3.7',
-        'Programming Language :: Python :: 3.8',
-        'Programming Language :: Python :: 3.9',
+        "Development Status :: 5 - Production/Stable",
+        "Topic :: Software Development :: Quality Assurance",
+        "Topic :: Software Development :: Testing",
+        "Topic :: Software Development :: Testing :: Traffic Generation",
+        "License :: OSI Approved :: Apache Software License",
+        "Operating System :: Microsoft :: Windows",
+        "Operating System :: MacOS",
+        "Operating System :: POSIX :: Linux",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
     ],
-    python_requires='>=3.6',    # should be '>=3.7', but let's keep it for obsolete configuration
+    python_requires=">=3.6",  # should be '>=3.7', but let's keep it for obsolete configuration
 )
